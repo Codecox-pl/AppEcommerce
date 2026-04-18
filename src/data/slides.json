@@ -1,0 +1,43 @@
+{
+    "slides": [
+        {
+            "id": 1,
+            "badge": "STOCK LIMITADO - RTX 40 SERIES",
+            "badgeColor": "text-brand-accent",
+            "bgColor": "bg-brand-accent",
+            "title": "POTENCIA",
+            "titleHighlight": "ABSURDA.",
+            "description": "No vendemos componentes, entregamos el motor de tus victorias. Domina el meta con la selección más agresiva de GPUs del mercado.",
+            "primaryButton": "VER OFERTAS",
+            "secondaryButton": "CONFIGURAR PC",
+            "image": "https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=800&q=80",
+            "imageAlt": "PC Gaming con RGB"
+        },
+        {
+            "id": 2,
+            "badge": "BLACK FRIDAY - HASTA 40% OFF",
+            "badgeColor": "text-red-500",
+            "bgColor": "bg-red-500",
+            "title": "OFERTAS",
+            "titleHighlight": "ÉPICAS.",
+            "description": "Aprovecha los mejores descuentos en procesadores, RAM y almacenamiento. Stock limitado, no te quedes fuera.",
+            "primaryButton": "COMPRAR AHORA",
+            "secondaryButton": "VER CATÁLOGO",
+            "image": "https://images.unsplash.com/photo-1591488320449-011701bb6704?w=800&q=80",
+            "imageAlt": "Setup Gaming"
+        },
+        {
+            "id": 3,
+            "badge": "NUEVO LANZAMIENTO",
+            "badgeColor": "text-purple-500",
+            "bgColor": "bg-purple-500",
+            "title": "PERIFÉRICOS",
+            "titleHighlight": "PRO.",
+            "description": "Teclados mecánicos, mice ultraligeros y headsets con sonido envolvente. Eleva tu juego al siguiente nivel.",
+            "primaryButton": "EXPLORAR",
+            "secondaryButton": "COMPARAR",
+            "image": "https://images.unsplash.com/photo-1612287230217-969b698cb8d1?w=800&q=80",
+            "imageAlt": "Periféricos Gaming"
+        }
+    ]
+}

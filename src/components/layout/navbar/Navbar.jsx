@@ -38,7 +38,7 @@ export default function Navbar() {
                             placeholder="¿Qué estás buscando hoy?"
                             className="w-full bg-brand-bg border border-brand-text-muted rounded-full py-2.5 pl-5 pr-12 text-sm text-brand-text-main placeholder-gray-500 focus:outline-none focus:border-brand-accent transition-colors"
                         />
-                        <button className="absolute right-1 top-1 bottom-1 bg-brand-accent text-black rounded-full px-2 hover:bg-brand-accent-hover transition-colors cursor-pointer">
+                        <button className="absolute right-1 top-1 bottom-1 bg-brand-accent text-black rounded-full px-2 cursor-pointer">
                             <Search size={16} className="sm:w-5 smh-5" />
                         </button>
                     </div>
