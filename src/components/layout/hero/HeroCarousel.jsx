@@ -1,6 +1,6 @@
 // src/components/layout/hero/HeroCarousel.jsx
 
-import Button from "../../ui/Button";
+import Button from "../../widgets/Button"
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 // Componente Principal (UI Pura)

@@ -1,5 +1,5 @@
 // src/components/layout/hero/HeroError.jsx
-import Button from "../../ui/Button";
+import Button from "../../widgets/Button";
 
 export default function HeroError({ message, onRetry }) {
     return (

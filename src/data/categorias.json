@@ -1,0 +1,46 @@
+{
+    "categorys": [
+        {
+            "id": 1,
+            "name": "Procesadores",
+            "icon": "Cpu",
+            "description": "Intel y AMD última generación",
+            "href": "/procesadores"
+        },
+        {
+            "id": 2,
+            "name": "Tarjetas de Video",
+            "icon": "Monitor",
+            "description": "NVIDIA RTX y AMD Radeon",
+            "href": "/tarjetas-video"
+        },
+        {
+            "id": 3,
+            "name": "Almacenamiento",
+            "icon": "HardDrive",
+            "description": "SSD NVMe y discos duros",
+            "href": "/almacenamiento"
+        },
+        {
+            "id": 4,
+            "name": "Procesadores",
+            "icon": "Cpu",
+            "description": "Intel y AMD última generación",
+            "href": "/procesadores"
+        },
+        {
+            "id": 5,
+            "name": "Periféricos",
+            "icon": "Headphones",
+            "description": "Teclados, mouse y headsets",
+            "href": "/perifericos"
+        },
+        {
+            "id": 6,
+            "name": "Gaming",
+            "icon": "Gamepad2",
+            "description": "Accesorios para gamers",
+            "href": "/gaming"
+        }
+    ]
+}
