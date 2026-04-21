@@ -1,11 +1,11 @@
 import Navbar from "./components/layout/navbar/Navbar";
-import HeroCarousel from "./components/layout/hero/HeroCarousel";
+import Hero from "./components/layout/hero/Hero";
 
 function App() {
   return (
     <div className="min-h-screen bg-brand-bg">
       <Navbar />
-      <HeroCarousel />
+      <Hero />
     </div>
   );
 }
