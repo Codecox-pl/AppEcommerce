@@ -2,45 +2,50 @@
     "categorys": [
         {
             "id": 1,
-            "name": "Procesadores",
-            "icon": "Cpu",
-            "description": "Intel y AMD última generación",
-            "href": "/procesadores"
+            "name": "Componentes de PC",
+            "subcategories": [
+                { "id": 101, "name": "Procesadores", "href": "/procesadores" },
+                { "id": 102, "name": "Tarjetas de Video", "href": "/tarjetas-video" },
+                { "id": 103, "name": "Placas Madre", "href": "/placas-madre" },
+                { "id": 104, "name": "Memoria RAM", "href": "/memoria-ram" },
+                { "id": 105, "name": "Fuentes de Poder", "href": "/fuentes-de-poder" }
+            ]
         },
         {
             "id": 2,
-            "name": "Tarjetas de Video",
-            "icon": "Monitor",
-            "description": "NVIDIA RTX y AMD Radeon",
-            "href": "/tarjetas-video"
+            "name": "Periféricos",
+            "subcategories": [
+                { "id": 201, "name": "Teclados", "href": "/teclados" },
+                { "id": 202, "name": "Mouse", "href": "/mouse" },
+                { "id": 203, "name": "Audífonos", "href": "/audifonos" },
+                { "id": 204, "name": "Monitores", "href": "/monitores" }
+            ]
         },
         {
             "id": 3,
             "name": "Almacenamiento",
-            "icon": "HardDrive",
-            "description": "SSD NVMe y discos duros",
-            "href": "/almacenamiento"
+            "subcategories": [
+                { "id": 301, "name": "Discos Duros (HDD)", "href": "/hdd" },
+                { "id": 302, "name": "Unidades de Estado Sólido (SSD)", "href": "/ssd" },
+                { "id": 303, "name": "Almacenamiento Externo", "href": "/almacenamiento-externo" }
+            ]
         },
         {
             "id": 4,
-            "name": "Procesadores",
-            "icon": "Cpu",
-            "description": "Intel y AMD última generación",
-            "href": "/procesadores"
+            "name": "Laptops",
+            "subcategories": [
+                { "id": 401, "name": "Laptops Gamer", "href": "/laptops-gamer" },
+                { "id": 402, "name": "Laptops de Oficina", "href": "/laptops-oficina" },
+                { "id": 403, "name": "Laptops Ultraligeras", "href": "/laptops-ultraligeras" }
+            ]
         },
         {
             "id": 5,
-            "name": "Periféricos",
-            "icon": "Headphones",
-            "description": "Teclados, mouse y headsets",
-            "href": "/perifericos"
-        },
-        {
-            "id": 6,
-            "name": "Gaming",
-            "icon": "Gamepad2",
-            "description": "Accesorios para gamers",
-            "href": "/gaming"
+            "name": "Sillas Gamer y Muebles",
+            "subcategories": [
+                { "id": 501, "name": "Sillas Gamer", "href": "/sillas-gamer" },
+                { "id": 502, "name": "Escritorios", "href": "/escritorios" }
+            ]
         }
     ]
 }
