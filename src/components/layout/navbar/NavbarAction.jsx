@@ -1,9 +1,9 @@
 
 
-export default function NavbarAction({ icon: Icon, label, badge, hasCircle }) {
+export default function NavbarAction({ icon: Icon, label, badge, hasCircle, onClick }) {
     return (
         //Contenedor
-        <div className="flex items-center gap-3 cursor-pointer group">
+        <div className="flex items-center gap-3 cursor-pointer group" onClick={onClick}>
 
             {/* Area del Icono*/}
             <div className={`

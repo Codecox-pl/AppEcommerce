@@ -3,10 +3,14 @@ import { ShoppingCart, User, MapPin, Menu, Search, ChevronDown } from "lucide-re
 import NavbarAction from "./NavbarAction";
 import CategoriesMenu from "../../widgets/CategoriesMenu";
 import LocationModal from "../../widgets/LocationModal";
+import AuthModal from "../auth/AuthModal";
+import RegisterModal from "../auth/RegisterModal";
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isLocationModalOpen, setIsLocationModalOpen] = useState(false);
+    const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+    const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
     const [location, setLocation] = useState(null);
 
     const handleSelectLocation = (loc) => {
@@ -16,10 +20,26 @@ export default function Navbar() {
     return (
         <>
             <CategoriesMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
-            <LocationModal 
-                isOpen={isLocationModalOpen} 
-                onClose={() => setIsLocationModalOpen(false)} 
+            <LocationModal
+                isOpen={isLocationModalOpen}
+                onClose={() => setIsLocationModalOpen(false)}
                 onSelect={handleSelectLocation}
+            />
+            <AuthModal 
+                isOpen={isAuthModalOpen} 
+                onClose={() => setIsAuthModalOpen(false)} 
+                onSwitchToRegister={() => {
+                    setIsAuthModalOpen(false);
+                    setIsRegisterModalOpen(true);
+                }}
+            />
+            <RegisterModal
+                isOpen={isRegisterModalOpen}
+                onClose={() => setIsRegisterModalOpen(false)}
+                onSwitchToLogin={() => {
+                    setIsRegisterModalOpen(false);
+                    setIsAuthModalOpen(true);
+                }}
             />
             <nav className="sticky top-0 z-40 w-full backdrop-blur-md">
                 <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
@@ -39,7 +59,7 @@ export default function Navbar() {
                         </button>
 
                         {/*Botón de Ubicación - Solo en pantallas medianas y grandes*/}
-                        <div 
+                        <div
                             onClick={() => setIsLocationModalOpen(true)}
                             className="hidden md:flex items-center gap-2 bg-brand-bg px-4 py-2 rounded-full border border-gray-700 hover:border-gray-600 cursor-pointer transition-colors"
                         >
@@ -48,7 +68,7 @@ export default function Navbar() {
                                 <span className="text-[10px] text-brand-text-main font-medium">
                                     {location ? "Enviar a" : "¿Dónde te gustaría"}
                                 </span>
-                                <span className="text-xs text-brand-text-main font-semibold leading-tight truncate max-w-[150px]">
+                                <span className="text-xs text-brand-text-main font-semibold leading-tight truncate max-w-37.5">
                                     {location ? `${location.distrito.name}, ${location.provincia.name}` : "recibir tu pedido?"}
                                 </span>
                             </div>
@@ -78,6 +98,7 @@ export default function Navbar() {
                             icon={User}
                             label="Iniciar sesión"
                             hasCircle={true}
+                            onClick={() => setIsAuthModalOpen(true)}
                         />
 
                         <NavbarAction

@@ -22,8 +22,8 @@ export default function LocationModal({ isOpen, onClose, onSelect }) {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
             {/* Backdrop sin onClick para evitar que se cierre */}
             <div className="absolute inset-0 bg-black/60" />
-            
-            <div className="relative bg-brand-bg w-full max-w-[550px] rounded-xl shadow-2xl flex flex-col max-h-[90vh] overflow-y-auto">
+
+            <div className="relative bg-brand-bg w-full max-w-137.5 rounded-xl shadow-2xl flex flex-col max-h-[90vh] overflow-y-auto">
                 {/* Header */}
                 <div className="relative p-6 border-b border-gray-300 flex items-center justify-center">
                     <h2 className="text-xl font-bold text-brand-text-main">
@@ -119,11 +119,10 @@ export default function LocationModal({ isOpen, onClose, onSelect }) {
                         <button
                             onClick={handleAccept}
                             disabled={!isComplete}
-                            className={`px-14 py-3 rounded-lg font-bold transition-colors shadow-sm ${
-                                isComplete 
-                                ? "bg-brand-accent text-white hover:bg-brand-accent-hover" 
-                                : "bg-gray-200 text-gray-400 cursor-not-allowed"
-                            }`}
+                            className={`px-14 py-3 rounded-lg font-bold transition-colors shadow-sm ${isComplete
+                                    ? "bg-brand-accent text-white hover:bg-brand-accent-hover"
+                                    : "bg-gray-200 text-gray-400 cursor-not-allowed"
+                                }`}
                         >
                             ACEPTAR
                         </button>
