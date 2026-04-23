@@ -2,13 +2,25 @@ import { useState } from "react";
 import { ShoppingCart, User, MapPin, Menu, Search, ChevronDown } from "lucide-react";
 import NavbarAction from "./NavbarAction";
 import CategoriesMenu from "../../widgets/CategoriesMenu";
+import LocationModal from "../../widgets/LocationModal";
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isLocationModalOpen, setIsLocationModalOpen] = useState(false);
+    const [location, setLocation] = useState(null);
+
+    const handleSelectLocation = (loc) => {
+        setLocation(loc);
+    };
 
     return (
         <>
             <CategoriesMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
+            <LocationModal 
+                isOpen={isLocationModalOpen} 
+                onClose={() => setIsLocationModalOpen(false)} 
+                onSelect={handleSelectLocation}
+            />
             <nav className="sticky top-0 z-40 w-full backdrop-blur-md">
                 <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
 
@@ -27,11 +39,18 @@ export default function Navbar() {
                         </button>
 
                         {/*Botón de Ubicación - Solo en pantallas medianas y grandes*/}
-                        <div className="hidden md:flex items-center gap-2 bg-brand-bg px-4 py-2 rounded-full border border-gray-700 hover:border-gray-600 cursor-pointer transition-colors">
+                        <div 
+                            onClick={() => setIsLocationModalOpen(true)}
+                            className="hidden md:flex items-center gap-2 bg-brand-bg px-4 py-2 rounded-full border border-gray-700 hover:border-gray-600 cursor-pointer transition-colors"
+                        >
                             <MapPin size={18} className="text-brand-text-main" />
                             <div className="flex flex-col">
-                                <span className="text-[10px] text-brand-text-main font-medium">¿Dónde te gustaría</span>
-                                <span className="text-xs ext-brand-text-main font-semibold leading-tight">recibir tu pedido?</span>
+                                <span className="text-[10px] text-brand-text-main font-medium">
+                                    {location ? "Enviar a" : "¿Dónde te gustaría"}
+                                </span>
+                                <span className="text-xs text-brand-text-main font-semibold leading-tight truncate max-w-[150px]">
+                                    {location ? `${location.distrito.name}, ${location.provincia.name}` : "recibir tu pedido?"}
+                                </span>
                             </div>
                             <ChevronDown size={16} className="text-brand-text-main" />
                         </div>

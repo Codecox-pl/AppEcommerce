@@ -1,0 +1,76 @@
+[
+  {
+    "id": "1",
+    "name": "Lima",
+    "provincias": [
+      {
+        "id": "101",
+        "name": "Lima",
+        "distritos": [
+          { "id": "10101", "name": "Lima" },
+          { "id": "10102", "name": "Miraflores" },
+          { "id": "10103", "name": "San Isidro" },
+          { "id": "10104", "name": "Santiago de Surco" },
+          { "id": "10105", "name": "Los Olivos" },
+          { "id": "10106", "name": "San Juan de Lurigancho" }
+        ]
+      },
+      {
+        "id": "102",
+        "name": "Callao",
+        "distritos": [
+          { "id": "10201", "name": "Callao" },
+          { "id": "10202", "name": "Bellavista" },
+          { "id": "10203", "name": "La Perla" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Arequipa",
+    "provincias": [
+      {
+        "id": "201",
+        "name": "Arequipa",
+        "distritos": [
+          { "id": "20101", "name": "Arequipa" },
+          { "id": "20102", "name": "Cayma" },
+          { "id": "20103", "name": "Yanahuara" },
+          { "id": "20104", "name": "Cerro Colorado" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Cusco",
+    "provincias": [
+      {
+        "id": "301",
+        "name": "Cusco",
+        "distritos": [
+          { "id": "30101", "name": "Cusco" },
+          { "id": "30102", "name": "Wanchaq" },
+          { "id": "30103", "name": "San Jerónimo" },
+          { "id": "30104", "name": "Santiago" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "name": "La Libertad",
+    "provincias": [
+      {
+        "id": "401",
+        "name": "Trujillo",
+        "distritos": [
+          { "id": "40101", "name": "Trujillo" },
+          { "id": "40102", "name": "Víctor Larco Herrera" },
+          { "id": "40103", "name": "Huanchaco" }
+        ]
+      }
+    ]
+  }
+]
