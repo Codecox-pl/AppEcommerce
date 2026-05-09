@@ -17,8 +17,8 @@ export default function HeroCarousel({
     const extendedSlides = slides.length > 0 ? [slides[slides.length - 1], ...slides, slides[0]] : [];
 
     return (
-        <section className="relative w-full bg-brand-bg overflow-hidden">
-            <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <section className="relative w-full bg-white border-y border-slate-200 overflow-hidden shadow-sm">
+            <div className="relative mx-auto max-w-7xl px-4 pt-6 pb-12 md:py-16 sm:px-6 lg:px-8">
                 {/* Track del Carousel */}
                 <div className="overflow-hidden w-full">
                     <div
@@ -26,40 +26,30 @@ export default function HeroCarousel({
                         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
                     >
                         {extendedSlides.map((slide, index) => (
-                            <div key={index} className="w-full shrink-0 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                            <div key={index} className="w-full shrink-0 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center">
                                 {/* --- COLUMNA IZQUIERDA: Contenido --- */}
-                                <div className="relative z-10 max-w-full overflow-hidden">
-                                    {/* Badge */}
-                                    <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-gray-700 bg-brand-surface px-4 py-1.5 max-w-full">
-                                        <span className={`w-2 h-2 rounded-full shrink-0 ${slide.bgColor} animate-pulse`}></span>
-                                        <span className={`text-xs font-bold uppercase tracking-wider truncate ${slide.badgeColor}`}>
-                                            {slide.badge}
-                                        </span>
-                                    </div>
-
+                                <div className="relative z-10 max-w-full overflow-hidden flex flex-col justify-center">
                                     {/* Título */}
-                                    <h1 className="mb-6 text-5xl sm:text-6xl lg:text-7xl font-black leading-tight wrap-break-word hyphens-auto">
-                                        {slide.title}{' '}
-                                        <span className={slide.badgeColor}>{slide.titleHighlight}</span>
+                                    <h1 className="mb-4 text-3xl sm:text-5xl lg:text-6xl font-black leading-tight wrap-break-word hyphens-auto text-brand-text line-clamp-3">
+                                        {slide.title}
                                     </h1>
 
-                                    {/* Descripción */}
-                                    <p className="mb-8 text-lg text-brand-text-muted max-w-lg wrap-break-word line-clamp-4">
-                                        {slide.description}
-                                    </p>
+                                    {/* Precios (en columna) */}
+                                    <div className="mb-8 flex flex-col gap-1">
+                                        <span className="text-3xl sm:text-4xl font-black text-brand-accent">
+                                            Oferta {slide.offerPrice}
+                                        </span>
+                                        <div className="flex items-center gap-2">
+                                            <span className="text-lg sm:text-xl font-bold text-slate-500">P.Normal</span>
+                                            <span className="text-lg sm:text-xl font-bold text-slate-500 line-through">{slide.normalPrice}</span>
+                                        </div>
+                                    </div>
 
                                     {/* Botones */}
-                                    <div className="flex flex-wrap gap-4 w-full">
-                                        <div className="flex-1 sm:flex-none min-w-0">
-                                            <Button variant="primary" size="lg">
-                                                <span className="truncate block w-full">{slide.primaryButton}</span>
-                                            </Button>
-                                        </div>
-                                        <div className="flex-1 sm:flex-none min-w-0">
-                                            <Button variant="outline" size="lg">
-                                                <span className="truncate block w-full">{slide.secondaryButton}</span>
-                                            </Button>
-                                        </div>
+                                    <div className="flex w-full">
+                                        <Button variant="primary" size="lg" className="w-full sm:w-auto">
+                                            Comprar
+                                        </Button>
                                     </div>
                                 </div>
 
@@ -69,7 +59,7 @@ export default function HeroCarousel({
                                         <img
                                             src={slide.image}
                                             alt={slide.imageAlt}
-                                            className="w-full h-75 sm:h-87.5 md:h-100 lg:h-112.5 object-cover rounded-2xl shadow-2xl shadow-brand-accent/10"
+                                            className="w-full h-56 sm:h-72 md:h-96 lg:h-112.5 object-cover rounded-2xl shadow-2xl shadow-brand-accent/10"
                                             loading={index === 0 ? "eager" : "lazy"}
                                             onError={(e) => {
                                                 e.target.src = 'https://placehold.co/800x450/1a1a1a/ffffff?text=Imagen+no+disponible';
@@ -103,7 +93,7 @@ export default function HeroCarousel({
                 </button>
 
                 {/* Indicadores */}
-                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
+                <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
                     <div className="flex gap-2">
                         {slides.map((_, index) => (
                             <button
