@@ -16,7 +16,7 @@ export default function Button({ variant = "primary", size = "md", children }) {
     };
 
 
-    const combinedClasses = `${baseClasses} ${variants[variant]} ${size[sizes]}`;
+    const combinedClasses = `${baseClasses} ${variants[variant]} ${sizes[size]}`;
 
     return (
         <button className={combinedClasses}>

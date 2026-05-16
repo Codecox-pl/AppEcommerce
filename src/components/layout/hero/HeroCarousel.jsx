@@ -23,24 +23,31 @@ export default function HeroCarousel({
                 <div className="overflow-hidden w-full">
                     <div
                         className={`flex transition-transform ${isTransitioning ? 'duration-500 ease-in-out' : 'duration-0'}`}
-                        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+                        style={{
+                            width: `${extendedSlides.length * 100}%`,
+                            transform: `translateX(-${(currentIndex * 100) / (extendedSlides.length || 1)}%)`
+                        }}
                     >
                         {extendedSlides.map((slide, index) => (
-                            <div key={index} className="w-full shrink-0 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center">
+                            <div
+                                key={index}
+                                className="shrink-0 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center"
+                                style={{ width: `${100 / (extendedSlides.length || 1)}%` }}
+                            >
                                 {/* --- COLUMNA IZQUIERDA: Contenido --- */}
                                 <div className="relative z-10 max-w-full overflow-hidden flex flex-col justify-center">
                                     {/* Título */}
-                                    <h1 className="mb-4 text-3xl sm:text-5xl lg:text-6xl font-black leading-tight wrap-break-word hyphens-auto text-brand-text line-clamp-3">
+                                    <h1 className="mb-4 text-3xl sm:text-5xl lg:text-6xl font-black leading-tight break-words hyphens-auto text-brand-text line-clamp-3">
                                         {slide.title}
                                     </h1>
 
                                     {/* Precios (en columna) */}
                                     <div className="mb-8 flex flex-col gap-1">
                                         <span className="text-3xl sm:text-4xl font-black text-brand-accent">
-                                            Oferta {slide.offerPrice}
+                                            {slide.offerPrice}
                                         </span>
                                         <div className="flex items-center gap-2">
-                                            <span className="text-lg sm:text-xl font-bold text-slate-500">P.Normal</span>
+                                            <span className="text-xs sm:text-xl font-bold text-slate-500">P.Normal</span>
                                             <span className="text-lg sm:text-xl font-bold text-slate-500 line-through">{slide.normalPrice}</span>
                                         </div>
                                     </div>

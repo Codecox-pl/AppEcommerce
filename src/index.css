@@ -17,4 +17,6 @@
 body {
   background-color: var(--color-brand-bg);
   color: var(--color-brand-text-main);
+  overflow-x: hidden;
+  width: 100%;
 }

@@ -25,9 +25,9 @@ export default function Navbar() {
                 onClose={() => setIsLocationModalOpen(false)}
                 onSelect={handleSelectLocation}
             />
-            <AuthModal 
-                isOpen={isAuthModalOpen} 
-                onClose={() => setIsAuthModalOpen(false)} 
+            <AuthModal
+                isOpen={isAuthModalOpen}
+                onClose={() => setIsAuthModalOpen(false)}
                 onSwitchToRegister={() => {
                     setIsAuthModalOpen(false);
                     setIsRegisterModalOpen(true);
@@ -41,22 +41,23 @@ export default function Navbar() {
                     setIsAuthModalOpen(true);
                 }}
             />
-            <nav className="sticky top-0 z-40 w-full backdrop-blur-md">
-                <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+            <nav className="sticky top-0 z-40 w-full backdrop-blur-md bg-brand-bg/95 sm:bg-transparent shadow-sm sm:shadow-none border-b border-gray-200 sm:border-none">
+                <div className="mx-auto flex flex-wrap max-w-7xl items-center justify-between px-3 sm:px-6 lg:px-8 pt-8 pb-3 sm:py-3 gap-y-3 sm:gap-y-0">
 
-                    {/* Izquierda ---- Logo y Menu ----*/}
-                    <div className="flex items-center gap-4">
-                        {/*Logo*/}
-                        <span className="text-xl font-black italic tracking-tighter text-brand-accent cursor-pointer">
-                            REMATAZO
-                        </span>
-                        {/* Menu hamburguesa */}
+                    {/* Izquierda ---- Menu y Logo ----*/}
+                    <div className="flex items-center gap-2 sm:gap-4 shrink-0 order-1">
+                        {/* Menu hamburguesa (primero en móvil) */}
                         <button
                             onClick={() => setIsMenuOpen(true)}
-                            className="text-brand-text-main hover:text-brand-accent transition-colors cursor-pointer"
+                            className="text-brand-text-main hover:text-brand-accent transition-colors cursor-pointer shrink-0"
                         >
                             <Menu size={24} />
                         </button>
+
+                        {/*Logo*/}
+                        <span className="text-xl sm:text-xl font-black italic tracking-tighter text-brand-accent cursor-pointer">
+                            REMATAZO
+                        </span>
 
                         {/*Botón de Ubicación - Solo en pantallas medianas y grandes*/}
                         <div
@@ -76,24 +77,8 @@ export default function Navbar() {
                         </div>
                     </div>
 
-                    {/* Centro ---- Barra de busqueda ----*/}
-                    <div className="flex-1 mx-3 sm:mx-8 max-w-xl sm:max-w-2xl">
-                        <div className="relative w-full">
-                            <input
-                                type="text"
-                                placeholder="¿Qué estás buscando hoy?"
-                                className="w-full bg-brand-bg border border-brand-text-muted rounded-full py-2.5 pl-5 pr-12 text-sm text-brand-text-main placeholder-gray-500 focus:outline-none focus:border-brand-accent transition-colors"
-                            />
-                            <button className="absolute right-1 top-1 bottom-1 bg-brand-accent text-black rounded-full px-2 cursor-pointer">
-                                <Search size={16} className="sm:w-5 smh-5" />
-                            </button>
-                        </div>
-                    </div>
-
-                    {/* Derecha ---- Acciones ----*/}
-                    <div className="flex items-center gap-4 sm:gap-6">
-
-                        {/* Usamos el componente creado */}
+                    {/* Derecha ---- Acciones (Iconos) ----*/}
+                    <div className="flex items-center gap-3 sm:gap-6 shrink-0 order-2 sm:order-3">
                         <NavbarAction
                             icon={User}
                             label="Iniciar sesión"
@@ -107,6 +92,21 @@ export default function Navbar() {
                             badge={10}
                         />
                     </div>
+
+                    {/* Centro ---- Barra de busqueda (Segunda fila en móvil) ----*/}
+                    <div className="w-full sm:flex-1 sm:w-auto order-3 sm:order-2 sm:mx-8 mt-1 sm:mt-0">
+                        <div className="relative w-full">
+                            <input
+                                type="text"
+                                placeholder="¿Qué estás buscando hoy?"
+                                className="w-full bg-white sm:bg-brand-bg border border-gray-300 sm:border-brand-text-muted rounded-full py-2 sm:py-2.5 pl-4 pr-10 sm:pl-5 sm:pr-12 text-sm text-brand-text-main placeholder-gray-500 focus:outline-none focus:border-brand-accent transition-colors"
+                            />
+                            <button className="absolute right-1 top-1 bottom-1 bg-brand-accent text-black rounded-full px-2 cursor-pointer shrink-0">
+                                <Search size={16} className="sm:w-5 sm:h-5" />
+                            </button>
+                        </div>
+                    </div>
+
                 </div>
             </nav>
         </>
