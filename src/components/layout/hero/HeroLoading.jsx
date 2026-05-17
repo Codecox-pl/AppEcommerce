@@ -2,8 +2,8 @@
 
 export default function HeroLoading() {
     return (
-        <section className="relative w-full bg-brand-bg py-16">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <section className="min-h-[calc(100dvh-135px)] md:min-h-[calc(100dvh-85px)] relative w-full bg-brand-bg py-16 flex flex-col justify-center">
+            <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     {/* Skeleton del contenido */}
                     <div className="space-y-6 animate-pulse">

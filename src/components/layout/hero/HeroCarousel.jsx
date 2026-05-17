@@ -1,7 +1,7 @@
 // src/components/layout/hero/HeroCarousel.jsx
 
 import Button from "../../widgets/Button"
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, ShoppingCart } from "lucide-react";
 
 // Componente Principal (UI Pura)
 export default function HeroCarousel({
@@ -17,8 +17,8 @@ export default function HeroCarousel({
     const extendedSlides = slides.length > 0 ? [slides[slides.length - 1], ...slides, slides[0]] : [];
 
     return (
-        <section className="relative w-full bg-white border-y border-slate-200 overflow-hidden shadow-sm">
-            <div className="relative mx-auto max-w-7xl px-4 pt-6 pb-12 md:py-16 sm:px-6 lg:px-8">
+        <section className="min-h-[calc(100dvh-135px)] md:min-h-[calc(100dvh-85px)] relative w-full bg-white border-y border-slate-200 overflow-hidden shadow-sm flex flex-col">
+            <div className="flex-1 relative mx-auto w-full max-w-7xl pt-6 pb-12 md:py-16 flex flex-col justify-center">
                 {/* Track del Carousel */}
                 <div className="overflow-hidden w-full">
                     <div
@@ -31,13 +31,13 @@ export default function HeroCarousel({
                         {extendedSlides.map((slide, index) => (
                             <div
                                 key={index}
-                                className="shrink-0 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center"
+                                className="shrink-0 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center px-4 sm:px-6 lg:px-8"
                                 style={{ width: `${100 / (extendedSlides.length || 1)}%` }}
                             >
                                 {/* --- COLUMNA IZQUIERDA: Contenido --- */}
                                 <div className="relative z-10 max-w-full overflow-hidden flex flex-col justify-center">
                                     {/* Título */}
-                                    <h1 className="mb-4 text-3xl sm:text-5xl lg:text-6xl font-black leading-tight break-words hyphens-auto text-brand-text line-clamp-3">
+                                    <h1 className="mb-4 text-2xl sm:text-5xl lg:text-6xl font-black leading-tight wrap-break-word hyphens-auto text-brand-text line-clamp-3">
                                         {slide.title}
                                     </h1>
 
@@ -54,7 +54,8 @@ export default function HeroCarousel({
 
                                     {/* Botones */}
                                     <div className="flex w-full">
-                                        <Button variant="primary" size="lg" className="w-full sm:w-auto">
+                                        <Button variant="primary" size="lg" className="w-full sm:w-auto px-8 sm:px-12 py-3.5 sm:py-4 text-lg sm:text-xl uppercase tracking-wide">
+                                            <ShoppingCart className="w-5 h-5 sm:w-6 sm:h-6" />
                                             Comprar
                                         </Button>
                                     </div>
