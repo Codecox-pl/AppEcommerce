@@ -1,34 +1,8 @@
-import { useState, useEffect, useRef } from "react";
 import { Search, X, ArrowRight } from "lucide-react";
-import ProductCard from "./ProductCard"; // Reutilizaremos este componente
-import MOCK_PRODUCTS from "../../data/productos.json";
+import { useSearchModal } from "../../hooks/useSearchModal";
 
 export default function SearchModal({ isOpen, onClose }) {
-    const [searchTerm, setSearchTerm] = useState("");
-    const [results, setResults] = useState([]);
-    const inputRef = useRef(null);
-
-    useEffect(() => {
-        if (isOpen) {
-            setSearchTerm("");
-            setResults([]);
-            setTimeout(() => {
-                inputRef.current?.focus();
-            }, 100);
-        }
-    }, [isOpen]);
-
-    useEffect(() => {
-        if (searchTerm.trim() === "") {
-            setResults([]);
-            return;
-        }
-
-        const filtered = MOCK_PRODUCTS.filter((product) =>
-            product.name.toLowerCase().includes(searchTerm.toLowerCase())
-        ).slice(0, 1); // Limit to 1 result
-        setResults(filtered);
-    }, [searchTerm]);
+    const { searchTerm, setSearchTerm, results, inputRef } = useSearchModal(isOpen);
 
     if (!isOpen) return null;
 
