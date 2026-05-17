@@ -1,17 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ShoppingCart, User, MapPin, Menu, Search, ChevronDown } from "lucide-react";
 import NavbarAction from "./NavbarAction";
 import CategoriesMenu from "../../widgets/CategoriesMenu";
 import LocationModal from "../../widgets/LocationModal";
 import AuthModal from "../auth/AuthModal";
 import RegisterModal from "../auth/RegisterModal";
+import SearchModal from "../../widgets/SearchModal";
 
-export default function Navbar() {
+export default function Navbar({ onSearchModalChange }) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isLocationModalOpen, setIsLocationModalOpen] = useState(false);
     const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
     const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
+    const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
     const [location, setLocation] = useState(null);
+
+    useEffect(() => {
+        if (onSearchModalChange) {
+            onSearchModalChange(isSearchModalOpen);
+        }
+    }, [isSearchModalOpen, onSearchModalChange]);
 
     const handleSelectLocation = (loc) => {
         setLocation(loc);
@@ -40,6 +48,10 @@ export default function Navbar() {
                     setIsRegisterModalOpen(false);
                     setIsAuthModalOpen(true);
                 }}
+            />
+            <SearchModal
+                isOpen={isSearchModalOpen}
+                onClose={() => setIsSearchModalOpen(false)}
             />
             <nav className="sticky top-0 z-40 w-full backdrop-blur-md bg-brand-bg/95 sm:bg-transparent shadow-sm sm:shadow-none border-b border-gray-200 sm:border-none">
                 <div className="mx-auto flex flex-wrap max-w-7xl items-center justify-between px-3 sm:px-6 lg:px-8 pt-8 pb-3 sm:py-3 gap-y-3 sm:gap-y-0">
@@ -95,13 +107,14 @@ export default function Navbar() {
 
                     {/* Centro ---- Barra de busqueda (Segunda fila en móvil) ----*/}
                     <div className="w-full sm:flex-1 sm:w-auto order-3 sm:order-2 sm:mx-8 mt-1 sm:mt-0">
-                        <div className="relative w-full">
-                            <input
-                                type="text"
-                                placeholder="¿Qué estás buscando hoy?"
-                                className="w-full bg-white sm:bg-brand-bg border border-gray-300 sm:border-brand-text-muted rounded-full py-2 sm:py-2.5 pl-4 pr-10 sm:pl-5 sm:pr-12 text-sm text-brand-text-main placeholder-gray-500 focus:outline-none focus:border-brand-accent transition-colors"
-                            />
-                            <button className="absolute right-1 top-1 bottom-1 bg-brand-accent text-black rounded-full px-2 cursor-pointer shrink-0">
+                        <div 
+                            className="relative w-full cursor-pointer group"
+                            onClick={() => setIsSearchModalOpen(true)}
+                        >
+                            <div className="w-full bg-white sm:bg-brand-bg border border-gray-300 sm:border-brand-text-muted rounded-full py-2 sm:py-2.5 pl-4 pr-10 sm:pl-5 sm:pr-12 text-sm text-gray-500 group-hover:border-brand-accent transition-colors flex items-center h-[38px] sm:h-[42px]">
+                                ¿Qué estás buscando hoy?
+                            </div>
+                            <button className="absolute right-1 top-1 bottom-1 bg-brand-accent text-black rounded-full px-2 cursor-pointer shrink-0 pointer-events-none">
                                 <Search size={16} className="sm:w-5 sm:h-5" />
                             </button>
                         </div>

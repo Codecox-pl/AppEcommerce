@@ -1,64 +1,9 @@
 import { ArrowRight } from "lucide-react";
 import ProductCard from "../../widgets/ProductCard";
+import PRODUCTOS_DATA from "../../../data/productos.json";
 
-// Mock Data
-const MONITORS_DATA = [
-    {
-        id: 1,
-        name: "Monitor Gamer Curvo Odyssey G9 49\" DQHD 240Hz 1ms",
-        image: "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?q=80&w=800&auto=format&fit=crop",
-        offerPrice: "S/ 4,599",
-        normalPrice: "S/ 5,999",
-        discount: 23,
-        rating: 4.8,
-        reviews: 124,
-        stock: 3
-    },
-    {
-        id: 2,
-        name: "Monitor LG UltraGear 27\" QHD IPS 165Hz 1ms G-Sync",
-        image: "https://images.unsplash.com/photo-1542393545-10f5cde2c810?q=80&w=800&auto=format&fit=crop",
-        offerPrice: "S/ 1,299",
-        normalPrice: "S/ 1,899",
-        discount: 31,
-        rating: 4.9,
-        reviews: 89,
-        stock: 12
-    },
-    {
-        id: 3,
-        name: "Monitor BenQ ZOWIE XL2411K 24\" FHD 144Hz 1ms para e-Sports",
-        image: "https://images.unsplash.com/photo-1586952518485-11b180e92764?q=80&w=800&auto=format&fit=crop",
-        offerPrice: "S/ 949",
-        normalPrice: "S/ 1,199",
-        discount: 20,
-        rating: 4.7,
-        reviews: 342,
-        stock: 5
-    },
-    {
-        id: 4,
-        name: "Monitor ASUS ProArt Display 27\" 4K HDR HDR10",
-        image: "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?q=80&w=800&auto=format&fit=crop",
-        offerPrice: "S/ 2,199",
-        normalPrice: "S/ 2,699",
-        discount: 18,
-        rating: 4.6,
-        reviews: 56,
-        stock: 8
-    },
-    {
-        id: 5,
-        name: "Monitor Gigabyte G27QC A 27\" VA Curvo QHD 165Hz",
-        image: "https://images.unsplash.com/photo-1551645120-d70bfe84c826?q=80&w=800&auto=format&fit=crop",
-        offerPrice: "S/ 1,149",
-        normalPrice: "S/ 1,499",
-        discount: 23,
-        rating: 4.5,
-        reviews: 72,
-        stock: 15
-    }
-];
+// Filtrar solo los monitores para esta sección
+const MONITORS_DATA = PRODUCTOS_DATA.filter(p => p.category === "Monitores");
 
 export default function FeaturedCategory() {
     return (

@@ -1,0 +1,86 @@
+[
+    {
+        "id": 1,
+        "name": "Monitor Gamer Curvo Odyssey G9 49\" DQHD 240Hz 1ms",
+        "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?q=80&w=800&auto=format&fit=crop",
+        "offerPrice": "S/ 4,599",
+        "normalPrice": "S/ 5,999",
+        "discount": 23,
+        "rating": 4.8,
+        "reviews": 124,
+        "stock": 3,
+        "category": "Monitores"
+    },
+    {
+        "id": 2,
+        "name": "Monitor LG UltraGear 27\" QHD IPS 165Hz 1ms G-Sync",
+        "image": "https://images.unsplash.com/photo-1542393545-10f5cde2c810?q=80&w=800&auto=format&fit=crop",
+        "offerPrice": "S/ 1,299",
+        "normalPrice": "S/ 1,899",
+        "discount": 31,
+        "rating": 4.9,
+        "reviews": 89,
+        "stock": 12,
+        "category": "Monitores"
+    },
+    {
+        "id": 3,
+        "name": "Monitor BenQ ZOWIE XL2411K 24\" FHD 144Hz 1ms para e-Sports",
+        "image": "https://images.unsplash.com/photo-1586952518485-11b180e92764?q=80&w=800&auto=format&fit=crop",
+        "offerPrice": "S/ 949",
+        "normalPrice": "S/ 1,199",
+        "discount": 20,
+        "rating": 4.7,
+        "reviews": 342,
+        "stock": 5,
+        "category": "Monitores"
+    },
+    {
+        "id": 4,
+        "name": "Monitor ASUS ProArt Display 27\" 4K HDR HDR10",
+        "image": "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?q=80&w=800&auto=format&fit=crop",
+        "offerPrice": "S/ 2,199",
+        "normalPrice": "S/ 2,699",
+        "discount": 18,
+        "rating": 4.6,
+        "reviews": 56,
+        "stock": 8,
+        "category": "Monitores"
+    },
+    {
+        "id": 5,
+        "name": "Monitor Gigabyte G27QC A 27\" VA Curvo QHD 165Hz",
+        "image": "https://images.unsplash.com/photo-1551645120-d70bfe84c826?q=80&w=800&auto=format&fit=crop",
+        "offerPrice": "S/ 1,149",
+        "normalPrice": "S/ 1,499",
+        "discount": 23,
+        "rating": 4.5,
+        "reviews": 72,
+        "stock": 15,
+        "category": "Monitores"
+    },
+    {
+        "id": 6,
+        "name": "Laptop Gamer ASUS ROG Strix G15",
+        "image": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?q=80&w=800&auto=format&fit=crop",
+        "offerPrice": "S/ 3,999",
+        "normalPrice": "S/ 4,599",
+        "discount": 13,
+        "rating": 4.8,
+        "reviews": 45,
+        "stock": 8,
+        "category": "Laptops"
+    },
+    {
+        "id": 7,
+        "name": "Teclado Mecánico Logitech G Pro X",
+        "image": "https://images.unsplash.com/photo-1595225476474-87563907a212?q=80&w=800&auto=format&fit=crop",
+        "offerPrice": "S/ 499",
+        "normalPrice": "S/ 599",
+        "discount": 17,
+        "rating": 4.9,
+        "reviews": 210,
+        "stock": 25,
+        "category": "Periféricos"
+    }
+]
