@@ -9,7 +9,7 @@ export default function Newsletter() {
 
             <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-16">
-                    
+
                     {/* Texto y Título */}
                     <div className="flex-1 text-center lg:text-left">
                         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-accent/10 text-brand-accent font-semibold text-sm mb-6">
@@ -25,17 +25,17 @@ export default function Newsletter() {
                     </div>
 
                     {/* Formulario */}
-                    <div className="w-full lg:w-[450px] shrink-0">
+                    <div className="w-full lg:w-112.5 shrink-0">
                         <form className="flex flex-col sm:flex-row gap-3" onSubmit={(e) => e.preventDefault()}>
                             <div className="relative flex-1">
-                                <input 
-                                    type="email" 
-                                    placeholder="tu@correo.com" 
+                                <input
+                                    type="email"
+                                    placeholder="tu@correo.com"
                                     required
                                     className="w-full bg-white border border-slate-300 text-brand-text placeholder-slate-400 rounded-xl px-5 py-4 focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-all duration-300"
                                 />
                             </div>
-                            <button 
+                            <button
                                 type="submit"
                                 className="group flex items-center justify-center gap-2 bg-brand-accent hover:bg-brand-accent-hover text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 active:scale-95 whitespace-nowrap shadow-lg shadow-brand-accent/20"
                             >
