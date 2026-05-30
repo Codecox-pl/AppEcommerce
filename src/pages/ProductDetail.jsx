@@ -1,21 +1,38 @@
 import { useState } from "react";
-import { CheckCircle2, Zap, Minus, Plus } from "lucide-react";
+import { CheckCircle2, Zap, Minus, Plus, ZoomIn, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import ProductTabs from "../components/widgets/ProductTabs";
 import RelatedProductsWidget from "../components/widgets/RelatedProductsWidget";
 import PRODUCT_DATA from "../data/productDetail.json";
+import { useImageGallery } from "../hooks/useImageGallery";
 
-export default function ProductDetail() {
-  const { product, relatedProducts } = PRODUCT_DATA;
-  const [quantity, setQuantity] = useState(1);
+// Custom hook para la cantidad
+function useQuantity(initialValue = 1, maxStock) {
+  const [quantity, setQuantity] = useState(initialValue);
 
-  const handleDecrease = () => {
+  const decrease = () => {
     if (quantity > 1) setQuantity(prev => prev - 1);
   };
 
-  const handleIncrease = () => {
-    if (quantity < product.stock) setQuantity(prev => prev + 1);
+  const increase = () => {
+    if (quantity < maxStock) setQuantity(prev => prev + 1);
   };
+
+  return { quantity, decrease, increase };
+}
+
+export default function ProductDetail() {
+  const { product, relatedProducts } = PRODUCT_DATA;
+  const { quantity, decrease, increase } = useQuantity(1, product.stock);
+  
+  const { 
+    activeImageIndex, 
+    setActiveImageIndex, 
+    isZoomModalOpen, 
+    setIsZoomModalOpen, 
+    zoomStyle, 
+    handlers 
+  } = useImageGallery(0);
 
   return (
     <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -33,14 +50,41 @@ export default function ProductDetail() {
 
         {/* Left: Gallery */}
         <div className="w-full lg:w-1/2 flex flex-col gap-4">
-          <div className="bg-white rounded-2xl p-8 flex items-center justify-center border border-gray-200 aspect-square shadow-sm">
-            <img src={product.images[0]} alt={product.name} className="object-contain w-full h-full" />
+          <div 
+            className="bg-white rounded-2xl p-8 flex items-center justify-center border border-gray-200 aspect-square shadow-sm relative group cursor-crosshair overflow-hidden"
+            onClick={() => setIsZoomModalOpen(true)}
+            {...handlers}
+          >
+            {/* Imagen base */}
+            <img 
+              src={product.images[activeImageIndex]} 
+              alt={product.name} 
+              className="object-contain w-full h-full" 
+            />
+            
+            {/* Efecto Lupa Inline - Superpuesto con transición */}
+            <div 
+              className={`absolute inset-0 pointer-events-none rounded-2xl transition-opacity duration-300 ease-in-out ${zoomStyle.show ? 'opacity-100' : 'opacity-0'}`}
+              style={{
+                backgroundImage: `url(${product.images[activeImageIndex]})`,
+                backgroundPosition: `${zoomStyle.x} ${zoomStyle.y}`,
+                backgroundSize: '250%',
+                backgroundRepeat: 'no-repeat',
+                backgroundColor: 'white' // Fondo blanco para ocultar la imagen base cuando la opacidad es 1
+              }}
+            />
+
+            {/* Icono Lupa */}
+            <div className={`absolute top-4 right-4 bg-white/80 backdrop-blur-sm p-2 rounded-full text-brand-accent shadow-sm border border-brand-accent/20 transition-opacity duration-300 ${zoomStyle.show ? 'opacity-0' : 'opacity-0 group-hover:opacity-100'}`}>
+               <ZoomIn size={20} />
+            </div>
           </div>
           <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
             {product.images.map((img, idx) => (
               <button
                 key={idx}
-                className={`w-20 h-20 sm:w-24 sm:h-24 shrink-0 rounded-xl border-2 ${idx === 0 ? 'border-brand-accent' : 'border-gray-200 hover:border-gray-300'} bg-white flex items-center justify-center p-2 transition-colors`}
+                onClick={() => setActiveImageIndex(idx)}
+                className={`w-20 h-20 sm:w-24 sm:h-24 shrink-0 rounded-xl border-2 ${idx === activeImageIndex ? 'border-brand-accent' : 'border-gray-200 hover:border-gray-300'} bg-white flex items-center justify-center p-2 transition-colors`}
               >
                 <img src={img} alt={`Thumbnail ${idx + 1}`} className="object-cover w-full h-full rounded-md" />
               </button>
@@ -86,8 +130,8 @@ export default function ProductDetail() {
             <div className="flex items-center gap-4 mt-2">
               <span className="font-bold text-sm text-gray-600">Cantidad:</span>
               <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden bg-white">
-                <button
-                  onClick={handleDecrease}
+                <button 
+                  onClick={decrease}
                   className="w-10 h-10 flex items-center justify-center hover:bg-gray-100 text-gray-600 transition-colors disabled:opacity-50"
                   disabled={quantity <= 1}
                 >
@@ -96,8 +140,8 @@ export default function ProductDetail() {
                 <div className="w-12 h-10 flex items-center justify-center font-bold border-x border-gray-300 text-sm">
                   {quantity}
                 </div>
-                <button
-                  onClick={handleIncrease}
+                <button 
+                  onClick={increase}
                   className="w-10 h-10 flex items-center justify-center hover:bg-gray-100 text-gray-600 transition-colors disabled:opacity-50"
                   disabled={quantity >= product.stock}
                 >
@@ -133,6 +177,24 @@ export default function ProductDetail() {
 
       {/* Related Products */}
       <RelatedProductsWidget products={relatedProducts} />
+
+      {/* Zoom Modal */}
+      {isZoomModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 sm:p-8 backdrop-blur-sm" onClick={() => setIsZoomModalOpen(false)}>
+          <button 
+            className="absolute top-4 right-4 sm:top-8 sm:right-8 text-white/70 hover:text-white transition-colors bg-white/10 p-2 rounded-full"
+            onClick={() => setIsZoomModalOpen(false)}
+          >
+            <X size={24} />
+          </button>
+          <img 
+            src={product.images[activeImageIndex]} 
+            alt={product.name} 
+            className="w-full h-full object-contain max-w-5xl" 
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
 
     </div>
   );
