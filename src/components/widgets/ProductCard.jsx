@@ -1,8 +1,10 @@
 import { Star, ShoppingCart } from "lucide-react";
+import { Link } from "react-router-dom";
 import Button from "./Button";
 
 export default function ProductCard({ product }) {
     const { 
+        id = 1,
         name, 
         image, 
         offerPrice, 
@@ -14,7 +16,7 @@ export default function ProductCard({ product }) {
     } = product;
 
     return (
-        <div className="group flex flex-col bg-white rounded-2xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden transition-all duration-300 transform hover:-translate-y-1 h-full">
+        <Link to={`/product/${id}`} className="group flex flex-col bg-white rounded-2xl shadow-sm hover:shadow-xl border border-slate-100 overflow-hidden transition-all duration-300 transform hover:-translate-y-1 h-full cursor-pointer">
             {/* Image Section */}
             <div className="relative w-full aspect-square bg-slate-50 overflow-hidden">
                 {/* Discount Badge */}
@@ -89,6 +91,6 @@ export default function ProductCard({ product }) {
                     </button>
                 </div>
             </div>
-        </div>
+        </Link>
     );
 }

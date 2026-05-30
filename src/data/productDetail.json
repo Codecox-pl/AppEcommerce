@@ -1,0 +1,62 @@
+{
+  "product": {
+    "id": 1,
+    "sku": "RTX-4080-SUP-01",
+    "name": "NVIDIA GEFORCE RTX 4080 SUPER",
+    "subtitle": "Beyond Fast. AI-Powered Graphics.",
+    "price": 1099.99,
+    "originalPrice": 1249.00,
+    "stock": 15,
+    "tag": "IN STOCK - NEXT DAY DELIVERY",
+    "images": [
+      "https://images.unsplash.com/photo-1591488320449-011701bb6704?auto=format&fit=crop&q=80&w=1000",
+      "https://images.unsplash.com/photo-1587202372634-32705e3bf49c?auto=format&fit=crop&q=80&w=1000",
+      "https://images.unsplash.com/photo-1624705002806-5d72df19c3ad?auto=format&fit=crop&q=80&w=1000"
+    ],
+    "tabs": {
+      "sobre_este_producto": {
+        "heading": "Cargador de pared Tipo C 20W Blanco Apple",
+        "description": "El adaptador de corriente USB-C de 20 W de Apple te permite cargar tu dispositivo de manera rápida y eficiente en cualquier lugar. Úsalo con el iPhone 8 o posterior para obtener una carga rápida; 50% de batería en unos 30 minutos. O úsalo con el iPad Pro y el iPad Air para obtener una carga óptima. Compatible con cualquier dispositivo que tenga un puerto USB-C.\n\nEl cable de carga se vende por separado."
+      },
+      "especificaciones": [
+        { "label": "CUDA CORES", "value": "10240" },
+        { "label": "BOOST CLOCK", "value": "2.55 GHz" },
+        { "label": "VRAM", "value": "16 GB GDDR6X" },
+        { "label": "TECH", "value": "DLSS 3.5" },
+        { "label": "Arquitectura", "value": "NVIDIA Ada Lovelace" },
+        { "label": "Ray Tracing", "value": "3rd Gen Cores" }
+      ],
+      "garantia": "El producto cuenta con una garantía de 3 años contra defectos de fabricación. La garantía no cubre daños inducidos por el usuario, manipulación indebida o variaciones extremas de voltaje. Conservar el empaque original es necesario para procesar cualquier cambio o devolución dentro de los primeros 30 días."
+    }
+  },
+  "relatedProducts": [
+    {
+      "id": 1,
+      "name": "Intel Core i9-14900K",
+      "category": "PROCESADOR",
+      "price": 589.00,
+      "image": "https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&q=80&w=600"
+    },
+    {
+      "id": 2,
+      "name": "ASUS ROG Maximus Z790",
+      "category": "PLACA BASE",
+      "price": 829.99,
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=600"
+    },
+    {
+      "id": 3,
+      "name": "Corsair Dominator 64GB",
+      "category": "MEMORIA RAM",
+      "price": 249.00,
+      "image": "https://images.unsplash.com/photo-1562976540-1502f0144246?auto=format&fit=crop&q=80&w=600"
+    },
+    {
+      "id": 4,
+      "name": "Samsung 990 PRO 2TB",
+      "category": "ALMACENAMIENTO",
+      "price": 179.99,
+      "image": "https://images.unsplash.com/photo-1628557044797-f21a177c37ec?auto=format&fit=crop&q=80&w=600"
+    }
+  ]
+}
