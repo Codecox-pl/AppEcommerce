@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { ShoppingCart, User, MapPin, Menu, Search, ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
 import NavbarAction from "./NavbarAction";
 import CategoriesMenu from "../../widgets/CategoriesMenu";
 import LocationModal from "../../widgets/LocationModal";
@@ -98,11 +99,13 @@ export default function Navbar({ onSearchModalChange }) {
                             onClick={() => setIsAuthModalOpen(true)}
                         />
 
-                        <NavbarAction
-                            icon={ShoppingCart}
-                            label="Carrito"
-                            badge={10}
-                        />
+                        <Link to="/cart" className="block">
+                            <NavbarAction
+                                icon={ShoppingCart}
+                                label="Carrito"
+                                badge={10}
+                            />
+                        </Link>
                     </div>
 
                     {/* Centro ---- Barra de busqueda (Segunda fila en móvil) ----*/}
