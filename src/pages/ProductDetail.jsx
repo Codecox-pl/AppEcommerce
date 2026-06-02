@@ -45,14 +45,21 @@ export default function ProductDetail() {
         <span className="font-bold text-brand-text-main">{product.name}</span>
       </div>
 
+      {/* Mobile Title */}
+      <div className="block lg:hidden mb-6">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-black italic tracking-tighter mb-2 uppercase leading-[1.1]">
+          NVIDIA GEFORCE<br />RTX 4080 SUPER
+        </h1>
+      </div>
+
       {/* Product Content */}
       <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 mb-12">
 
         {/* Left: Gallery */}
         <div className="w-full lg:w-1/2 flex flex-col gap-4">
           <div 
-            className="bg-white rounded-2xl p-8 flex items-center justify-center border border-gray-200 aspect-square shadow-sm relative group cursor-crosshair overflow-hidden"
-            onClick={() => setIsZoomModalOpen(true)}
+            className="bg-white rounded-xl lg:rounded-2xl p-2 sm:p-4 lg:p-8 flex items-center justify-center border border-gray-200 aspect-[4/3] sm:aspect-square shadow-sm relative group cursor-default lg:cursor-crosshair overflow-hidden"
+            onClick={() => window.innerWidth >= 1024 && setIsZoomModalOpen(true)}
             {...handlers}
           >
             {/* Imagen base */}
@@ -64,7 +71,7 @@ export default function ProductDetail() {
             
             {/* Efecto Lupa Inline - Superpuesto con transición */}
             <div 
-              className={`absolute inset-0 pointer-events-none rounded-2xl transition-opacity duration-300 ease-in-out ${zoomStyle.show ? 'opacity-100' : 'opacity-0'}`}
+              className={`hidden lg:block absolute inset-0 pointer-events-none rounded-2xl transition-opacity duration-300 ease-in-out ${zoomStyle.show ? 'opacity-100' : 'opacity-0'}`}
               style={{
                 backgroundImage: `url(${product.images[activeImageIndex]})`,
                 backgroundPosition: `${zoomStyle.x} ${zoomStyle.y}`,
@@ -75,7 +82,7 @@ export default function ProductDetail() {
             />
 
             {/* Icono Lupa */}
-            <div className={`absolute top-4 right-4 bg-white/80 backdrop-blur-sm p-2 rounded-full text-brand-accent shadow-sm border border-brand-accent/20 transition-opacity duration-300 ${zoomStyle.show ? 'opacity-0' : 'opacity-0 group-hover:opacity-100'}`}>
+            <div className={`hidden lg:block absolute top-4 right-4 bg-white/80 backdrop-blur-sm p-2 rounded-full text-brand-accent shadow-sm border border-brand-accent/20 transition-opacity duration-300 ${zoomStyle.show ? 'opacity-0' : 'opacity-0 group-hover:opacity-100'}`}>
                <ZoomIn size={20} />
             </div>
           </div>
@@ -95,30 +102,30 @@ export default function ProductDetail() {
         {/* Right: Info */}
         <div className="w-full lg:w-1/2 flex flex-col">
           {/* Title */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black italic tracking-tighter mb-2 uppercase leading-[1.1]">
+          <h1 className="hidden lg:block text-3xl sm:text-4xl md:text-5xl font-black italic tracking-tighter mb-2 uppercase leading-[1.1]">
             NVIDIA GEFORCE<br />RTX 4080 SUPER
           </h1>
 
           {/* Price */}
-          <div className="flex items-end gap-3 mb-6">
-            <span className="text-4xl sm:text-5xl font-black text-brand-accent tracking-tighter">${product.price.toFixed(2)}</span>
-            <span className="text-lg sm:text-xs font-semibold text-brand-accent tracking-tighter">Precio Fan Destacado</span>
+          <div className="flex flex-col items-start sm:flex-row sm:items-end gap-1 sm:gap-3 mb-4 sm:mb-6">
+            <span className="text-4xl sm:text-5xl font-black text-brand-accent tracking-tighter leading-none">${product.price.toFixed(2)}</span>
+            <span className="text-sm sm:text-xs font-semibold text-brand-accent tracking-tighter">Precio Fan Destacado</span>
           </div>
 
           {/* Price especial*/}
-          <div className="flex items-end gap-3 mb-6">
-            <span className="text-lg text-brand-text-muted line-through mb-1.5">${product.originalPrice.toFixed(2)}</span>
-            <span className="text-lg text-brand-text-muted mb-1.5">Precio regular</span>
+          <div className="flex flex-col items-start sm:flex-row sm:items-end gap-0 sm:gap-3 mb-6">
+            <span className="text-lg text-brand-text-muted line-through leading-none sm:mb-1.5">${product.originalPrice.toFixed(2)}</span>
+            <span className="text-sm sm:text-lg text-brand-text-muted sm:mb-1.5">Precio regular</span>
           </div>
 
           {/* Stock, SKU & Quantity */}
           <div className="flex flex-col gap-4 mb-8 pb-8 border-b border-gray-200">
-            <div className="flex items-center gap-4 text-sm">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm">
               <div className="flex items-center gap-1.5">
                 <span className="font-semibold text-gray-500">SKU:</span>
                 <span className="font-bold">{product.sku}</span>
               </div>
-              <div className="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
+              <div className="hidden sm:block w-1.5 h-1.5 rounded-full bg-gray-300"></div>
               <div className="flex items-center gap-1.5">
                 <span className="font-semibold text-gray-500">Disponibilidad:</span>
                 <span className={`font-bold ${product.stock > 0 ? 'text-green-600' : 'text-red-500'}`}>
